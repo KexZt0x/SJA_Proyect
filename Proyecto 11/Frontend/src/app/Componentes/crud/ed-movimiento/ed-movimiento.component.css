@@ -1,0 +1,25 @@
+body {
+    background-color: #061727;
+}
+
+.container {
+    border: 2px solid #1A73E8;
+}
+
+.form-control {
+    background-color: #FFFFFF;
+    color: #061727;
+}
+
+label {
+    color: #1A73E8;
+}
+
+.btn-primary {
+    background-color: #1A73E8;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0F5BB5;
+}

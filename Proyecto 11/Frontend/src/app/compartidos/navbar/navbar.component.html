@@ -1,0 +1,73 @@
+<header class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container">
+            <a class="navbar-brand text-white" routerLink="/existencias">Menu Gimnasio SJA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Productos</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" routerLink="/ProductoMateria"><img src="./assets/Imagenes/etiquetas.png"
+                                        width="20" height="20" class="d-inline-block align-middle"> Equipos Gimnasio</a></li>
+                            <li><a class="dropdown-item" routerLink="/existencias"><img src="./assets/Imagenes/existencias.png"
+                                        width="20" height="20" class="d-inline-block align-middle"> Existencias</a></li>
+                            <li><a class="dropdown-item" routerLink="/categorias"><img src="./assets/Imagenes/categoria.png"
+                                        width="20" height="20" class="d-inline-block align-middle"> Categorías</a></li>
+                            <!-- <li><a class="dropdown-item" routerLink="/unidades"><img src="./assets/Imagenes/metro.png"
+                                        width="20" height="20" class="d-inline-block align-middle"> Unidad Medida</a></li> -->
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Usuarios</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" routerLink="/Usuarios"><img src="./assets/Imagenes/agregar-usuario.png"
+                                        width="20" height="20" class="d-inline-block align-middle"> Usuarios</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Movimientos</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" routerLink="/motivo"><img src="./assets/Imagenes/motivo.png"
+                                        width="20" height="20" class="d-inline-block align-middle"> Motivo</a></li>
+                            <li><a class="dropdown-item" routerLink="/movimiento"><img src="./assets/Imagenes/movimiento.png"
+                                        width="20" height="20" class="d-inline-block align-middle"> Movimiento</a></li>
+                            <li><a class="dropdown-item" routerLink="/reportes"><img src="./assets/Imagenes/reportes.png"
+                                        width="20" height="20" class="d-inline-block align-middle"> Reportes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="./assets/Imagenes/agregar-usuario.png" width="30" height="30"
+                                class="rounded-circle me-2"> Perfil
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end p-3">
+                            <li *ngFor="let RegistroUsuariosVariable of UsuarioModel | async">
+                                <strong>Nombre:</strong>
+                                <div>{{RegistroUsuariosVariable.NombreUsuario}}</div>
+                                <strong>Rol:</strong>
+                                <div>{{RegistroUsuariosVariable.DescripcionRol}}</div>
+                            </li>
+                            <li class="text-center mt-3">
+                                <button class="btn btn-outline-primary" (click)="Cerrarsession()">Cerrar Sesión</button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

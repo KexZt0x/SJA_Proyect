@@ -1,0 +1,180 @@
+<style> 
+  /* Contenedor principal para centrar la tarjeta en la página */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #E6F0FA;
+  }
+
+  /* Tarjeta de login */
+  .login-card {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  /* Sección de imagen / logo */
+  .logo-section {
+    background-color: #0077CC;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-section img {
+    max-width: 80%;
+    border-radius: 8px;
+  }
+
+  /* Formulario de inicio de sesión */
+  .login-form-section {
+    background-color: #FFFFFF;
+    padding: 40px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .login-header h2 {
+    color: #0077CC;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  /* Campos de entrada */
+  .form-outline {
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    border: 1px solid #0077CC;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Etiquetas */
+  .form-label {
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  /* Botón de inicio de sesión */
+  .Ins {
+    background-color: #0077CC;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  .Ins:hover {
+    background-color: #005FA3;
+  }
+
+  /* Enlace de recuperación de contraseña */
+  .forgot-password-link {
+    color: #0077CC;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .forgot-password-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Botón para ocultar el formulario de recuperación */
+  .btn-cancel {
+    background-color: #CCCCCC;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .btn-cancel:hover {
+    background-color: #A9A9A9;
+  }
+</style>
+
+<div class="container">
+  <!-- Tarjeta de login con imagen y formulario -->
+  <div class="login-card">
+    <!-- Sección de logo / imagen -->
+    <div class="logo-section">
+      <img src="../../../assets/Imagenes/Logo-SJA.png" alt="Logo o Imagen" />
+    </div>
+
+    <!-- Sección del formulario de login -->
+    <div class="login-form-section">
+      <div class="login-header">
+        <h2>Iniciar Sesión</h2>
+      </div>
+      
+      <form (ngSubmit)="logeo()" #LoginForm="ngForm">
+        <div class="form-outline">
+          <label class="form-label" for="EmailUsuario">Correo</label>
+          <input type="email" id="EmailUsuario" class="form-control" name="EmailUsuario" [(ngModel)]="UsuarioModel.Correo" required />
+        </div>
+
+        <div class="form-outline">
+          <label class="form-label" for="Clave">Clave</label>
+          <input type="password" id="Clave" class="form-control" name="Clave" [(ngModel)]="UsuarioModel.Clave" required />
+        </div>
+
+        <button type="submit" class="Ins">Iniciar Sesión</button>
+      </form>
+
+      <a href="#" class="forgot-password-link" (click)="showForgotPasswordForm = true">¿Olvidaste tu contraseña?</a>
+
+      <!-- Formulario de recuperación de contraseña -->
+      <div *ngIf="showForgotPasswordForm">
+        <h4>Recuperar Contraseña</h4>
+        <form (ngSubmit)="RecuperarClave()" #forgotPasswordForm="ngForm">
+          <div class="form-outline">
+            <label for="correo" class="form-label">Correo</label>
+            <input type="email" id="correo" class="form-control" name="correo" [(ngModel)]="UsuarioModel.Correo" required />
+          </div>
+
+          <div class="form-outline">
+            <label for="Clave" class="form-label">Clave</label>
+            <input type="password" id="Clave" class="form-control" name="Clave" [(ngModel)]="UsuarioModel.Clave" required />
+          </div>
+
+          <div class="form-outline">
+            <label for="PalabraClave" class="form-label">Palabra Clave</label>
+            <input type="text" id="PalabraClave" class="form-control" name="PalabraClave" [(ngModel)]="UsuarioModel.PalabraClave" required />
+          </div>
+
+          <button type="submit" class="Ins">Enviar</button>
+          <br>
+          <button type="button" class="btn-cancel" (click)="showForgotPasswordForm = false">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

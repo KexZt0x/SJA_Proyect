@@ -1,0 +1,67 @@
+<main class="container mt-4">
+  <div class="card">
+      <h5 class="card-header bg-primary text-white">Actualizar Movimiento</h5>
+      <div class="card-body">
+          <form [formGroup]="movimientoForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                  <label for="idMovimiento" class="form-label">Movimiento:</label>
+                  <input type="text" id="idMovimiento" formControlName="IdMovimiento" class="form-control" readonly>
+              </div>
+
+              <div class="mb-3">
+                  <label for="fechaMovimiento" class="form-label">Fecha del Movimiento:</label>
+                  <input type="datetime-local" id="fechaMovimiento" formControlName="FechaMovimiento" class="form-control">
+              </div>
+
+              <div class="mb-3">
+                  <label for="solicitanteEquipo" class="form-label">Solicitante del Equipo:</label>
+                  <input type="text" id="solicitanteEquipo" formControlName="SolicitanteEquipo" class="form-control">
+              </div>
+
+              <div class="mb-3">
+                  <label for="correoSolicitante" class="form-label">Correo del Solicitante:</label>
+                  <input type="email" id="correoSolicitante" formControlName="CorreoSolicitante" class="form-control">
+              </div>
+
+              <div class="mb-3">
+                  <label for="telefonoSolicitante" class="form-label">Teléfono del Solicitante:</label>
+                  <input type="tel" id="telefonoSolicitante" formControlName="TelefonoSolicitante" class="form-control" maxlength="10">
+              </div>
+
+              <div class="mb-3">
+                  <label for="cantidadProducto" class="form-label">Cantidad de Producto:</label>
+                  <input type="number" id="cantidadProducto" formControlName="CantidadProducto" class="form-control">
+              </div>
+
+              <div class="mb-3">
+                  <label for="idMotivo" class="form-label">Motivo del Movimiento:</label>
+                  <select formControlName="IdMotivo" class="form-select">
+                      <option *ngFor="let motivo of motivos" [value]="motivo.IdMotivo">{{ motivo.DescripcionMovimiento }}</option>
+                  </select>
+              </div>
+
+              <div class="mb-3">
+                  <label for="idProductoMateriaPrima" class="form-label">Producto/Materia Prima:</label>
+                  <select formControlName="IdProductoMateriaPrima" class="form-select">
+                      <option *ngFor="let producto of productos" [value]="producto.IdProductoMateriaPrima">{{ producto.NombreProducto }}</option>
+                  </select>
+              </div>
+
+              <div class="mb-3">
+                  <label for="idUsuario" class="form-label">Usuario:</label>
+                  <input type="number" id="idUsuario" formControlName="IdUsuario" class="form-control">
+              </div>
+
+              <div class="mb-3">
+                  <label for="tipoMovimiento" class="form-label">Tipo de Movimiento:</label>
+                  <select formControlName="TipoMovimiento" class="form-select">
+                      <option value="Entrada">Entrada</option>
+                      <option value="Salida">Salida</option>
+                  </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Actualizar</button>
+          </form>
+      </div>
+  </div>
+</main>
